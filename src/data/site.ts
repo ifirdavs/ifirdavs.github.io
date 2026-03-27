@@ -33,7 +33,7 @@ export const siteConfig = {
     { label: 'Blog', href: '/blog/' },
     {
       label: 'Channel',
-      href: 'https://t.me/firdavsbekismoilov',
+      href: 'https://t.me/s/firdavsbekismoilov',
       external: true,
     },
     { label: 'About', href: '/about/' },
@@ -43,7 +43,7 @@ export const siteConfig = {
     {
       label: 'Telegram',
       iconClass: 'fa-brands fa-telegram',
-      href: 'https://t.me/firdavsbekismoilov',
+      href: 'https://t.me/s/firdavsbekismoilov',
     },
     {
       label: 'GitHub',

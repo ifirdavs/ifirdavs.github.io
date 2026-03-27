@@ -6,7 +6,7 @@ export type NavigationItem = {
 
 export type SocialLink = {
   label: string;
-  shortLabel: string;
+  iconClass: string;
   href: string;
 };
 
@@ -26,7 +26,7 @@ export const siteConfig = {
   },
   contact: {
     email: 'self@gmail.com',
-    telegramChannel: 'https://t.me/firdavsbekismoilov',
+    telegramChannel: 'https://t.me/s/firdavsbekismoilov',
   },
   copyright: `© Firdavsbek Ismoilov ${currentYear}`,
   navigation: [
@@ -40,26 +40,34 @@ export const siteConfig = {
     { label: 'Contact', href: '/contact/' },
   ] satisfies NavigationItem[],
   socials: [
-    { label: 'Telegram', shortLabel: 'TG', href: 'https://t.me/firdavsbekismoilov' },
-    { label: 'GitHub', shortLabel: 'GH', href: 'https://github.com/ifirdavs' },
+    {
+      label: 'Telegram',
+      iconClass: 'fa-brands fa-telegram',
+      href: 'https://t.me/firdavsbekismoilov',
+    },
+    {
+      label: 'GitHub',
+      iconClass: 'fa-brands fa-github',
+      href: 'https://github.com/ifirdavs',
+    },
     {
       label: 'LinkedIn',
-      shortLabel: 'IN',
+      iconClass: 'fa-brands fa-linkedin-in',
       href: 'https://www.linkedin.com/in/firdavsbek-ismoilov',
     },
     {
       label: 'Stack Overflow',
-      shortLabel: 'SO',
+      iconClass: 'fa-brands fa-stack-overflow',
       href: 'https://stackoverflow.com/users/18988552/firdavs',
     },
     {
       label: 'Twitter/X',
-      shortLabel: 'X',
+      iconClass: 'fa-brands fa-x-twitter',
       href: 'https://x.com/firdavsonx',
     },
     {
       label: 'Facebook',
-      shortLabel: 'FB',
+      iconClass: 'fa-brands fa-facebook-f',
       href: 'https://www.facebook.com/firdavsbekio',
     },
   ] satisfies SocialLink[],

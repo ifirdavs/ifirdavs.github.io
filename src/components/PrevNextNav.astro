@@ -1,0 +1,49 @@
+---
+import type { BlogPost } from '../lib/blog';
+import { formatDisplayDate, postUrl } from '../lib/blog';
+
+interface Props {
+  newer?: BlogPost;
+  older?: BlogPost;
+}
+
+const { newer, older } = Astro.props as Props;
+---
+
+{
+  (newer || older) && (
+    <nav class="grid gap-4 border-t border-slate-200 pt-8 dark:border-slate-800 md:grid-cols-2" aria-label="Post navigation">
+      {newer ? (
+        <a
+          href={postUrl(newer)}
+          class="surface flex h-full flex-col gap-3 px-5 py-5 text-left hover:border-sky-300 dark:hover:border-sky-600"
+        >
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+            Newer Post
+          </p>
+          <h2 class="text-2xl font-semibold text-slate-950 dark:text-white">{newer.data.title}</h2>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            {formatDisplayDate(newer.data.pubDate)}
+          </p>
+        </a>
+      ) : (
+        <div></div>
+      )}
+
+      {older && (
+        <a
+          href={postUrl(older)}
+          class="surface flex h-full flex-col gap-3 px-5 py-5 text-left hover:border-sky-300 dark:hover:border-sky-600"
+        >
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+            Older Post
+          </p>
+          <h2 class="text-2xl font-semibold text-slate-950 dark:text-white">{older.data.title}</h2>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            {formatDisplayDate(older.data.pubDate)}
+          </p>
+        </a>
+      )}
+    </nav>
+  )
+}

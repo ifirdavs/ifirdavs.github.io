@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Source Sans 3", "Segoe UI", sans-serif;
+  --font-serif: "Fraunces", Georgia, serif;
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgb(14 165 233 / 0.16), transparent 30%),
+    radial-gradient(circle at top right, rgb(249 115 22 / 0.12), transparent 28%),
+    linear-gradient(180deg, #fcfaf6 0%, #f3eee4 100%);
+  color: #0f172a;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background:
+      radial-gradient(circle at top left, rgb(14 165 233 / 0.2), transparent 28%),
+      radial-gradient(circle at top right, rgb(249 115 22 / 0.18), transparent 28%),
+      linear-gradient(180deg, #020617 0%, #0f172a 100%);
+    color: #e2e8f0;
+  }
+}
+
+::selection {
+  background: rgb(14 165 233 / 0.22);
+}
+
+:focus-visible {
+  outline: 2px solid rgb(14 165 233 / 0.85);
+  outline-offset: 3px;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif tracking-tight;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .section-shell {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 80rem;
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .section-shell {
+      padding-inline: 2rem;
+    }
+  }
+
+  .surface {
+    border: 1px solid rgb(255 255 255 / 0.6);
+    border-radius: 2rem;
+    background: rgb(255 255 255 / 0.85);
+    box-shadow: 0 24px 80px -32px rgb(15 23 42 / 0.25);
+    backdrop-filter: blur(18px);
+  }
+
+  .eyebrow {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #0369a1;
+  }
+
+  .button-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 hover:bg-slate-800 dark:bg-sky-300 dark:text-slate-950 dark:hover:bg-sky-200;
+  }
+
+  .button-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-slate-300 bg-white/70 px-5 py-3 text-sm font-semibold text-slate-900 hover:border-slate-400 hover:bg-white dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-slate-600 dark:hover:bg-slate-900;
+  }
+
+  .social-chip {
+    @apply inline-flex items-center gap-3 rounded-full border border-slate-200/80 bg-white/85 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-sky-300 hover:text-sky-700 dark:border-slate-700/80 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:border-sky-500 dark:hover:text-sky-300;
+  }
+
+  .social-badge {
+    @apply inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-950 text-xs font-bold text-white dark:bg-sky-300 dark:text-slate-950;
+    letter-spacing: 0.18em;
+  }
+
+  .article-body {
+    @apply text-lg leading-8 text-slate-700 dark:text-slate-300;
+  }
+
+  .article-body h2 {
+    @apply mt-12 text-3xl font-semibold text-slate-950 dark:text-white;
+  }
+
+  .article-body h3 {
+    @apply mt-10 text-2xl font-semibold text-slate-950 dark:text-white;
+  }
+
+  .article-body p {
+    @apply my-5;
+  }
+
+  .article-body strong {
+    @apply font-semibold text-slate-950 dark:text-white;
+  }
+
+  .article-body a {
+    @apply font-semibold text-sky-700 underline decoration-sky-300 underline-offset-4 hover:text-sky-800 dark:text-sky-300 dark:decoration-sky-700 dark:hover:text-sky-200;
+  }
+
+  .article-body ul,
+  .article-body ol {
+    @apply my-6 space-y-3 pl-6;
+  }
+
+  .article-body ul {
+    @apply list-disc;
+  }
+
+  .article-body ol {
+    @apply list-decimal;
+  }
+
+  .article-body blockquote {
+    @apply my-8 rounded-r-3xl border-l-4 border-sky-500 bg-sky-50/80 px-6 py-4 text-slate-700 dark:bg-sky-950/40 dark:text-slate-200;
+  }
+
+  .article-body code {
+    @apply rounded bg-slate-950/6 px-1.5 py-1 font-mono text-slate-900 dark:bg-white/10 dark:text-slate-100;
+    font-size: 0.9em;
+  }
+
+  .article-body pre {
+    @apply my-8 overflow-x-auto border border-slate-200 bg-slate-950 px-5 py-4 text-sm leading-7 text-slate-100 shadow-lg shadow-slate-950/10 dark:border-slate-800;
+    border-radius: 1.75rem;
+  }
+
+  .article-body pre code {
+    @apply bg-transparent p-0 text-inherit;
+  }
+
+  .article-body img {
+    @apply my-8 border border-slate-200/80 dark:border-slate-800/80;
+    border-radius: 1.75rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .surface {
+    border-color: rgb(30 41 59 / 0.8);
+    background: rgb(15 23 42 / 0.78);
+    box-shadow: 0 24px 90px -36px rgb(2 6 23 / 0.8);
+  }
+
+  .eyebrow {
+    color: #7dd3fc;
+  }
+}

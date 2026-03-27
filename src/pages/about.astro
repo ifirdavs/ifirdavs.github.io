@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../data/site';
+---
+
+<BaseLayout
+  title="About"
+  description="Learn more about Firdavsbek Ismoilov, his background in software engineering, and the areas he focuses on professionally."
+  path="/about/"
+>
+  <section class="section-shell">
+    <div class="space-y-4">
+      <p class="eyebrow">About</p>
+      <h1 class="max-w-4xl text-5xl font-semibold text-slate-950 dark:text-white sm:text-6xl">
+        Building dependable software, thoughtful developer experiences, and products that age well.
+      </h1>
+      <p class="max-w-3xl text-lg leading-8 text-slate-700 dark:text-slate-300">
+        {siteConfig.author.name} is a software engineer who approaches product delivery with a
+        systems mindset. He cares deeply about creating software that is maintainable under
+        pressure, clear for teams to evolve, and practical for real users.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-shell mt-10 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+    <div class="surface space-y-6 px-6 py-8 md:px-8">
+      <h2 class="text-3xl font-semibold text-slate-950 dark:text-white">Professional profile</h2>
+      <p class="text-lg leading-8 text-slate-700 dark:text-slate-300">
+        His background spans modern web engineering, backend integration, automation, and platform
+        thinking. Rather than treating delivery as a handoff between disciplines, he tends to work
+        across the full path from product intent to implementation details, helping teams connect
+        architecture, user experience, and execution quality.
+      </p>
+      <p class="text-lg leading-8 text-slate-700 dark:text-slate-300">
+        He is especially motivated by software that supports long-term clarity: strong foundations,
+        good defaults, readable abstractions, and tooling that reduces friction for the rest of the
+        team. That means thinking not only about shipping features, but also about how systems are
+        debugged, extended, documented, and operated over time.
+      </p>
+      <p class="text-lg leading-8 text-slate-700 dark:text-slate-300">
+        Beyond code, he values thoughtful communication, careful iteration, and craftsmanship.
+        Whether the problem is frontend architecture, build pipelines, content systems, or a better
+        authoring workflow, his focus is usually the same: make the next step easier, safer, and
+        more reliable for both users and collaborators.
+      </p>
+    </div>
+
+    <div class="grid gap-6">
+      <div class="surface px-6 py-8">
+        <h2 class="text-2xl font-semibold text-slate-950 dark:text-white">Core strengths</h2>
+        <ul class="mt-4 space-y-3 text-base leading-7 text-slate-700 dark:text-slate-300">
+          <li>Designing maintainable web platforms and content-driven sites</li>
+          <li>Improving developer workflows, automation, and release confidence</li>
+          <li>Balancing product speed with code quality and operational stability</li>
+          <li>Creating accessible, polished interfaces with strong information structure</li>
+        </ul>
+      </div>
+
+      <div class="surface px-6 py-8">
+        <h2 class="text-2xl font-semibold text-slate-950 dark:text-white">Focus areas</h2>
+        <ul class="mt-4 space-y-3 text-base leading-7 text-slate-700 dark:text-slate-300">
+          <li>Frontend systems and design implementation</li>
+          <li>Static site architecture and performance-oriented builds</li>
+          <li>Tooling, CI/CD, and workflow ergonomics</li>
+          <li>Technical writing, documentation, and knowledge sharing</li>
+        </ul>
+      </div>
+
+      <div class="surface px-6 py-8">
+        <h2 class="text-2xl font-semibold text-slate-950 dark:text-white">Interests</h2>
+        <p class="mt-4 text-base leading-7 text-slate-700 dark:text-slate-300">
+          He enjoys exploring practical engineering tradeoffs, emerging developer tooling, AI-assisted
+          workflows, and the design details that make technical products feel refined instead of merely
+          functional.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

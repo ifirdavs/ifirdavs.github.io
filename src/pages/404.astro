@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page Not Found"
+  description="The page you were looking for could not be found."
+  path="/404/"
+  noIndex={true}
+>
+  <section class="section-shell">
+    <div class="surface mx-auto max-w-3xl px-6 py-10 text-center md:px-10 md:py-14">
+      <p class="eyebrow">404</p>
+      <h1 class="mt-4 text-5xl font-semibold text-slate-950 dark:text-white sm:text-6xl">
+        The page you requested is not here.
+      </h1>
+      <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-700 dark:text-slate-300">
+        It may have moved, the link may be outdated, or the route might never have existed. The
+        best next step is to head back home or jump into the blog archive.
+      </p>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a class="button-primary" href="/">Back Home</a>
+        <a class="button-secondary" href="/blog/">Browse Blog</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

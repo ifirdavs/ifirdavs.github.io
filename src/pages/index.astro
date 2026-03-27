@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import PostCard from '../components/PostCard.astro';
+import ProfileHero from '../components/ProfileHero.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../data/site';
+import { getPublishedPosts } from '../lib/blog';
+
+const recentPosts = getPublishedPosts(await getCollection('blog')).slice(0, 3);
+---
+
+<BaseLayout path="/" description={siteConfig.description}>
+  <ProfileHero />
+
+  <section class="section-shell mt-10">
+    <div class="surface px-6 py-8 md:px-10 md:py-10">
+      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div class="space-y-3">
+          <p class="eyebrow">Latest Writing</p>
+          <h2 class="text-4xl font-semibold text-slate-950 dark:text-white">
+            Notes on engineering, systems, and developer workflow.
+          </h2>
+        </div>
+
+        <a class="button-secondary" href="/blog/">View the archive</a>
+      </div>
+
+      <div class="mt-8 grid gap-6 lg:grid-cols-3">
+        {recentPosts.map((post) => <PostCard post={post} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

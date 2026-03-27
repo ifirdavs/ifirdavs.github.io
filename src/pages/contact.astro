@@ -1,0 +1,28 @@
+---
+import ContactForm from '../components/ContactForm.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact"
+  description="Get in touch with Firdavsbek Ismoilov using the static contact form or direct email."
+  path="/contact/"
+>
+  <section class="section-shell">
+    <div class="space-y-4">
+      <p class="eyebrow">Contact</p>
+      <h1 class="max-w-3xl text-5xl font-semibold text-slate-950 dark:text-white sm:text-6xl">
+        Reach out for collaboration, questions, or project ideas.
+      </h1>
+      <p class="max-w-2xl text-lg leading-8 text-slate-700 dark:text-slate-300">
+        GitHub Pages is static, so the form below prepares a prefilled email for your default mail
+        app. It keeps the experience simple while still collecting the details needed for a useful
+        first message.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-shell mt-10">
+    <ContactForm />
+  </section>
+</BaseLayout>

@@ -1,0 +1,57 @@
+---
+import SocialLinks from './SocialLinks.astro';
+import { siteConfig } from '../data/site';
+---
+
+<section class="section-shell">
+  <div class="surface grid gap-10 overflow-hidden px-6 py-8 md:px-10 lg:grid-cols-[1.3fr_0.9fr] lg:items-center lg:gap-14 lg:px-14 lg:py-14">
+    <div class="space-y-6">
+      <p class="eyebrow">Personal Blog</p>
+      <div class="space-y-4">
+        <h1 class="text-5xl font-semibold text-slate-950 dark:text-white sm:text-6xl">
+          {siteConfig.author.name}
+        </h1>
+        <p class="text-xl font-semibold text-sky-700 dark:text-sky-300">
+          {siteConfig.author.role}
+        </p>
+      </div>
+
+      <p class="max-w-2xl text-lg leading-8 text-slate-700 dark:text-slate-300">
+        {siteConfig.author.intro}
+      </p>
+
+      <SocialLinks />
+
+      <div class="flex flex-wrap gap-4">
+        <a class="button-primary" href="/blog/">Read My Blog</a>
+        <a
+          class="button-secondary"
+          href={siteConfig.contact.telegramChannel}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Subscribe
+        </a>
+      </div>
+
+      <a
+        href="/rss.xml"
+        class="inline-flex items-center text-sm font-semibold text-slate-600 underline decoration-slate-300 underline-offset-4 hover:text-sky-700 dark:text-slate-300 dark:decoration-slate-700 dark:hover:text-sky-300"
+      >
+        Prefer feeds? Subscribe via RSS.
+      </a>
+    </div>
+
+    <div class="relative isolate">
+      <div class="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-sky-300/35 via-transparent to-orange-300/35 blur-3xl dark:from-sky-500/30 dark:to-orange-500/25"></div>
+      <div class="mx-auto max-w-md rounded-[2rem] border border-white/70 bg-white/75 p-4 shadow-2xl shadow-slate-950/10 backdrop-blur dark:border-slate-800 dark:bg-slate-900/80">
+        <img
+          src={siteConfig.author.avatar}
+          alt={`${siteConfig.author.name} profile illustration`}
+          class="aspect-square w-full rounded-[1.6rem] object-cover"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </div>
+</section>

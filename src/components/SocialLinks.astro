@@ -1,0 +1,30 @@
+---
+import type { SocialLink } from '../data/site';
+import { siteConfig } from '../data/site';
+
+interface Props {
+  links?: SocialLink[];
+  showLabels?: boolean;
+}
+
+const { links = siteConfig.socials, showLabels = true } = Astro.props as Props;
+---
+
+<ul class="flex flex-wrap gap-3" aria-label="Social links">
+  {
+    links.map((link) => (
+      <li>
+        <a
+          href={link.href}
+          class="social-chip"
+          target="_blank"
+          rel="noreferrer"
+          aria-label={link.label}
+        >
+          <span class="social-badge" aria-hidden="true">{link.shortLabel}</span>
+          {showLabels ? <span>{link.label}</span> : <span class="sr-only">{link.label}</span>}
+        </a>
+      </li>
+    ))
+  }
+</ul>

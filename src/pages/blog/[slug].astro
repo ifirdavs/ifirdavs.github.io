@@ -1,0 +1,85 @@
+---
+import { getCollection, render } from 'astro:content';
+import PrevNextNav from '../../components/PrevNextNav.astro';
+import TagList from '../../components/TagList.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  formatDisplayDate,
+  getAdjacentPosts,
+  getPublishedPosts,
+  postUrl,
+  type BlogPost,
+} from '../../lib/blog';
+
+export async function getStaticPaths() {
+  const posts = getPublishedPosts(await getCollection('blog'));
+
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props as Props;
+const { Content } = await render(post);
+const allPosts = getPublishedPosts(await getCollection('blog'));
+const { newer, older } = getAdjacentPosts(allPosts, post.id);
+const pagePath = postUrl(post);
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  path={pagePath}
+  image={post.data.heroImage}
+  type="article"
+>
+  <article class="section-shell">
+    <div class="mx-auto max-w-4xl">
+      <header class="space-y-6">
+        <p class="eyebrow">Article</p>
+        <h1 class="text-5xl font-semibold text-slate-950 dark:text-white sm:text-6xl">
+          {post.data.title}
+        </h1>
+
+        <div class="flex flex-wrap items-center gap-3 text-sm font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+          <span>{formatDisplayDate(post.data.pubDate)}</span>
+          {
+            post.data.updatedDate && (
+              <span>Updated {formatDisplayDate(post.data.updatedDate)}</span>
+            )
+          }
+        </div>
+
+        <TagList tags={post.data.tags} />
+      </header>
+
+      {
+        post.data.heroImage && (
+          <div class="mt-10 overflow-hidden rounded-[2rem] border border-white/70 bg-white/80 shadow-xl shadow-slate-950/10 dark:border-slate-800 dark:bg-slate-900/80">
+            <img
+              src={post.data.heroImage}
+              alt=""
+              class="aspect-[16/9] w-full object-cover"
+              loading="eager"
+            />
+          </div>
+        )
+      }
+
+      <div class="surface mt-10 px-6 py-8 md:px-10 md:py-10">
+        <div class="article-body">
+          <Content />
+        </div>
+
+        <div class="mt-10">
+          <PrevNextNav newer={newer} older={older} />
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,56 @@
+---
+import { getCollection } from 'astro:content';
+import PostCard from '../../components/PostCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPublishedPosts, groupPostsByYearAndMonth } from '../../lib/blog';
+
+const posts = getPublishedPosts(await getCollection('blog'));
+const groupedPosts = groupPostsByYearAndMonth(posts);
+---
+
+<BaseLayout
+  title="Blog"
+  description="Published articles from Firdavsbek Ismoilov on software engineering, delivery, and practical lessons from building software."
+  path="/blog/"
+>
+  <section class="section-shell">
+    <div class="space-y-4">
+      <p class="eyebrow">Archive</p>
+      <h1 class="max-w-3xl text-5xl font-semibold text-slate-950 dark:text-white sm:text-6xl">
+        Writing on software engineering with a delivery-minded lens.
+      </h1>
+      <p class="max-w-2xl text-lg leading-8 text-slate-700 dark:text-slate-300">
+        Every published post is grouped by year and month so the archive stays easy to scan as the
+        site grows.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-shell mt-10 space-y-10">
+    {
+      groupedPosts.map((yearGroup) => (
+        <div class="surface px-6 py-8 md:px-8">
+          <div class="mb-8 flex items-center justify-between gap-4 border-b border-slate-200 pb-5 dark:border-slate-800">
+            <h2 class="text-4xl font-semibold text-slate-950 dark:text-white">{yearGroup.year}</h2>
+            <span class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+              {yearGroup.months.reduce((count, month) => count + month.posts.length, 0)} posts
+            </span>
+          </div>
+
+          <div class="space-y-10">
+            {yearGroup.months.map((monthGroup) => (
+              <section>
+                <h3 class="mb-5 text-2xl font-semibold text-slate-800 dark:text-slate-100">
+                  {monthGroup.month}
+                </h3>
+                <div class="grid gap-6 lg:grid-cols-2">
+                  {monthGroup.posts.map((post) => <PostCard post={post} />)}
+                </div>
+              </section>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </section>
+</BaseLayout>

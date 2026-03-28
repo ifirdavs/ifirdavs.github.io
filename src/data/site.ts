@@ -19,10 +19,10 @@ export const siteConfig = {
   url: 'https://firdavsbek.com',
   author: {
     name: 'Firdavsbek Ismoilov',
-    role: 'Software Engineer',
+    role: 'ML Researcher, Software Engineer',
     avatar: '/images/profile-portrait.jpg',
     intro:
-      'Welcome to my personal blog where I share insights, tutorials, and experiences in software engineering. Follow me on my social media channels to stay updated with my latest posts and projects.',
+      'Follow on social links: ',
   },
   contact: {
     email: 'self@gmail.com',

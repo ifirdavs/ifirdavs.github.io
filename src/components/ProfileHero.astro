@@ -4,8 +4,22 @@ import { siteConfig } from '../data/site';
 ---
 
 <section class="section-shell">
-  <div class="surface grid gap-10 overflow-hidden px-6 py-8 md:px-10 lg:grid-cols-[1.45fr_0.55fr] lg:items-center lg:gap-14 lg:px-14 lg:py-14">
-    <div class="space-y-6">
+  <div class="surface overflow-hidden px-6 py-8 md:px-10 lg:px-14 lg:py-14">
+    <div class="relative space-y-6 md:pr-40 lg:pr-44">
+      <div class="absolute right-0 top-0 hidden md:block">
+        <div class="relative isolate">
+          <div class="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-sky-300/35 via-transparent to-orange-300/35 blur-3xl dark:from-sky-500/30 dark:to-orange-500/25"></div>
+          <div class="mx-auto w-full max-w-[8rem] rounded-full border border-black bg-black/75 p-1 shadow-2xl shadow-slate-950/10 backdrop-blur lg:max-w-[9rem] dark:border-slate-800 dark:bg-slate-900/80">
+            <img
+              src={siteConfig.author.avatar}
+              alt={`${siteConfig.author.name} profile illustration`}
+              class="aspect-square w-full rounded-full object-cover"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+
       <p class="eyebrow">Personal Blog</p>
       <div class="space-y-4">
         <h1 class="text-5xl font-semibold text-slate-950 dark:text-white sm:text-6xl">
@@ -40,18 +54,6 @@ import { siteConfig } from '../data/site';
       >
         Prefer feeds? Subscribe via RSS.
       </a>
-    </div>
-
-    <div class="relative isolate lg:justify-self-end">
-      <div class="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-sky-300/35 via-transparent to-orange-300/35 blur-3xl dark:from-sky-500/30 dark:to-orange-500/25"></div>
-      <div class="mx-auto w-full max-w-[12rem] rounded-full border border-white/70 bg-white/75 p-2.5 shadow-2xl shadow-slate-950/10 backdrop-blur sm:max-w-[13rem] lg:max-w-[14rem] dark:border-slate-800 dark:bg-slate-900/80">
-        <img
-          src={siteConfig.author.avatar}
-          alt={`${siteConfig.author.name} profile illustration`}
-          class="aspect-square w-full rounded-full object-cover"
-          loading="eager"
-        />
-      </div>
     </div>
   </div>
 </section>
